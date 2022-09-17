@@ -34,7 +34,13 @@ int main()
 	Circle c1;
 	Circle c2(5);
 	Circle c3 = c2;
+	Circle *c4 = new Circle;
+	Circle* c5 = new Circle(5);
+	Circle* c6 = new Circle(*c5);
 
+	delete c4;
+	delete c5;
+	delete c6;
 	
 	return 0;
 }
