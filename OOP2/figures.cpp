@@ -97,8 +97,11 @@ public:
 
 int main()
 {
+	Line* l1 = new Line();
+	Line* l2 = new Line(*l1);
+	delete l1;
+	delete l2;
 
-	Line l1(1, 2, 3, 4);
 	//Triangle* t1 = new Triangle();
 	//Triangle* t2 = new Triangle(*t1);
 	//delete t1;
