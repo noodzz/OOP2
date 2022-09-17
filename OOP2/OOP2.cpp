@@ -7,22 +7,22 @@ class Circle
 private:
 	int r;
 public:
-	Circle()
+	Circle() //конструктор без параметров
 	{
 		cout << "Circle()" << endl;
 		r = 0;
 	}
-	Circle(int r)
+	Circle(int r) //конструктор с параметром 
 	{
 		cout << "Circle(int r)" << endl;
 		this->r = r;
 	}
-	Circle(Circle& c)
+	Circle(Circle& c) //конструктор копирования
 	{
 		cout << "Circle(Circle& c)" << endl;
 		r = c.r;
 	}
-	~Circle()
+	~Circle() //деструктор
 	{
 		cout << r << endl;
 		cout << "~Circle()" << endl;
