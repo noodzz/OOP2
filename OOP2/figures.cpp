@@ -30,3 +30,47 @@ public:
 		cout << "~Point()" << endl;
 	}
 };
+
+
+class Triangle {
+protected:
+	Point* A;
+	Point* B;
+	Point* C;
+public:
+	Triangle()
+	{
+		cout << "Triangle()" << endl;
+		A = new Point;
+		B = new Point;
+		C = new Point;
+	}
+	Triangle(Point a, Point b, Point c)
+	{
+		cout << "Triangle(Point a, Point b, Point c)" << endl;
+		A = new Point(a);
+		B = new Point(b);
+		C = new Point(c);
+	}
+	Triangle(Triangle& t)
+	{
+		cout << "Triangle(Triangle& t)" << endl;
+		A = new Point(*(t.A));
+		B = new Point(*(t.B));
+		C = new Point(*(t.C));
+	}
+	~Triangle()
+	{
+		cout << "~Triangle()" << endl;
+		delete A;
+		delete B;
+		delete C;
+	}
+
+};
+
+int main()
+{
+
+	return 0;
+}
