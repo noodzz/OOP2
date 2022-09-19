@@ -59,7 +59,7 @@ public:
 };
 
 class Triangle {
-protected:
+private:
 	Point* A;
 	Point* B;
 	Point* C;
