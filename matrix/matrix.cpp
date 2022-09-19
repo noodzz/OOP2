@@ -16,6 +16,7 @@ protected:
 public:
 	Matrix()
 	{
+		cout << "Matrix()" << endl;
 		rows = 1; 
 		cols = 1;
 		vals[0] = 0;
@@ -23,6 +24,7 @@ public:
 	Matrix(int r, int c)
 		: rows(r), cols(c)
 	{
+		cout << "Matrix(int r, int c)" << endl;
 		memory();
 		for (int i = 0; i < rows; i++)
 			for (int j = 0; j < cols; j++)
@@ -30,6 +32,7 @@ public:
 	}
 	Matrix(Matrix& m)
 	{
+		cout << "Matrix(Matrix& m)" << endl;
 		rows = m.rows;
 		cols = m.cols;
 		memory();
@@ -78,6 +81,7 @@ public:
 };
 int main()
 {
-	
-
+	Matrix m(5, 2);
+	m.random_fill();
+	m.print();
 }
