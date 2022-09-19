@@ -6,6 +6,7 @@ class Circle
 {
 private:
 	int r;
+	float pi = 3.14159;
 public:
 	Circle() //конструктор без параметров
 	{
@@ -24,10 +25,19 @@ public:
 	}
 	~Circle() //деструктор
 	{
-		cout << r << endl;
-		cout << "~Circle()" << endl;
+		cout << r << " ~Circle()" << endl;
 	}
+	void expand(int dr)
+	{
+		r += dr;
+	}
+	float area();
 };
+
+float Circle::area()
+{
+	return pi * r * r;
+}
 
 int main()
 {
@@ -39,11 +49,12 @@ int main()
 	Circle *c4 = new Circle;
 	Circle* c5 = new Circle(5);
 	Circle* c6 = new Circle(*c5);
+	cout << c5->area() << endl;
 	//удаление динамически созданных объектов
 	delete c4;
 	delete c5;
 	delete c6;
 	
-
+	c1.expand(4);
 	return 0;
 }
