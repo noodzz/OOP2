@@ -7,11 +7,11 @@ class Matrix
 protected:
 	int rows, cols;
 	float** vals;
-	void memory()
+	void memory() //выделение памяти под динамический двумерный массив
 	{
-		vals = new float* [rows];
+		vals = new float* [rows]; //выделениe памяти под массив указателей размера rows
 		for (int i = 0; i < rows; i++)
-			vals[i] = new float[cols];
+			vals[i] = new float[cols]; //выделение памяти под массив значений размера cols
 	}
 public:
 	Matrix()
@@ -45,8 +45,36 @@ public:
 			delete[] vals[i];
 		delete[] vals;
 	}
-	
-
+	void fill()
+	{
+		for (int i = 0; i < rows; i++)
+			for (int j = 0; j < cols; j++)
+				cin >> vals[i][j];
+	}
+	void print()
+	{
+		for (int i = 0; i < rows; i++)
+		{
+			for (int j = 0; j < cols; j++)
+				cout << vals[i][j] << " ";
+			cout << endl;
+		}
+	}
+	void random_fill()
+	{
+		srand(time(0));
+		for (int i = 0; i < rows; i++)
+			for (int j = 0; j < cols; j++)
+				vals[i][j] = 1 + rand() % 100;
+	}
+	Matrix transpose()
+	{
+		Matrix res(cols, rows);
+		for (int i = 0; i < rows; i++)
+			for (int j = 0; j < cols; j++)
+				res.vals[j][i] = vals[i][j];
+		return res;
+	}
 };
 int main()
 {
