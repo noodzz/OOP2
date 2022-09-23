@@ -19,7 +19,8 @@ public:
 		cout << "Matrix()" << endl;
 		rows = 1; 
 		cols = 1;
-		vals[0] = 0;
+		memory();
+		vals[0][0] = 0;
 	}
 	Matrix(int r, int c)
 		: rows(r), cols(c)
@@ -76,12 +77,46 @@ public:
 		for (int i = 0; i < rows; i++)
 			for (int j = 0; j < cols; j++)
 				res.vals[j][i] = vals[i][j];
-		return res;
+		for (int i = 0; i < rows; i++)
+			for (int j = 0; j < cols; j++)
+				vals[i][j] = res.vals[i][j];
+		return *this;
 	}
 };
+
+class SquareMatrix : public Matrix {
+public:
+	SquareMatrix() : Matrix() 
+	{
+		cout << "SquareMatrix()" << endl;
+	}
+	SquareMatrix(int n) : Matrix(n, n)
+	{
+		cout << "SquareMatrix(int n)" << endl;
+	}
+	SquareMatrix(const SquareMatrix& sm)
+	{
+		
+		rows = sm.rows;
+		cols = sm.rows;
+		memory();
+		for (int i = 0; i < rows; i++)
+			for (int j = 0; j < cols; j++)
+				vals[i][j] = sm.vals[i][j];
+		cout << "SquareMatrix(const Matrix& sm)" << endl;
+	}
+	~SquareMatrix() 
+	{
+		cout << "~SquareMatrix()" << endl;
+	}
+};
+
 int main()
 {
-	Matrix m(5, 2);
+	SquareMatrix m(2);
 	m.random_fill();
 	m.print();
+	m.transpose();
+	m.print();
+
 }
