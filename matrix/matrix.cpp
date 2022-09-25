@@ -55,8 +55,9 @@ public:
 			for (int j = 0; j < cols; j++)
 				cin >> vals[i][j];
 	}
-	void print()
+	virtual void print()
 	{
+		cout << "This is a rectangular matrix:" << endl;
 		for (int i = 0; i < rows; i++)
 		{
 			for (int j = 0; j < cols; j++)
@@ -118,6 +119,16 @@ public:
 	{
 		cout << "~SquareMatrix()" << endl;
 	}
+	void print()
+	{
+		cout << "This is a square matrix:" << endl;
+		for (int i = 0; i < rows; i++)
+		{
+			for (int j = 0; j < cols; j++)
+				cout << vals[i][j] << " ";
+			cout << endl;
+		}
+	}
 	float determinant()
 	{
 		float det = 0;
@@ -162,10 +173,13 @@ SquareMatrix SquareMatrix::minor(int r, int c)
 
 int main()
 {
+	Matrix m1(2, 3);
+	m1.random_fill();
 	SquareMatrix m(3);
-	m.fill();
+	m.random_fill();
+	m1.print();
 	m.print();
-	cout << "Determinant = " << m.determinant() << endl;
+	
 	
 
 }
