@@ -55,7 +55,7 @@ public:
 			for (int j = 0; j < cols; j++)
 				cin >> vals[i][j];
 	}
-	virtual void print()
+	void print()
 	{
 		cout << "This is a rectangular matrix:" << endl;
 		for (int i = 0; i < rows; i++)
@@ -173,6 +173,8 @@ SquareMatrix SquareMatrix::minor(int r, int c)
 
 int main()
 {
+	Matrix *mx = new SquareMatrix; // так можно
+	/*SquareMatrix* mx1 = new Matrix;*/ //так нельзя
 	Matrix m1(2, 3);
 	m1.random_fill();
 	SquareMatrix m(3);
