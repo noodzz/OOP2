@@ -10,22 +10,22 @@ private:
 public:
 	Circle() //конструктор без параметров
 	{
-		cout << "Circle()" << endl;
 		r = 0;
+		cout << "Circle()" << " r = " << r << endl;
 	}
-	Circle(int r) //конструктор с параметром 
+	Circle(int _r) //конструктор с параметром 
 	{
-		cout << "Circle(int r)" << endl;
-		this->r = r;
+		r = _r;
+		cout << "Circle(int _r)" << " r = " << r << endl;
 	}
 	Circle(Circle& c) //конструктор копирования
 	{
-		cout << "Circle(Circle& c)" << endl;
 		r = c.r;
+		cout << "Circle(Circle& c)" << " r = " << r << endl;
 	}
 	~Circle() //деструктор
 	{
-		cout << r << " ~Circle()" << endl;
+		cout << "~Circle()" << " r = " << r << endl;
 	}
 	void expand(int dr)
 	{
@@ -47,14 +47,12 @@ int main()
 	Circle c3 = c2;
 	//динамически создаваемые объекты
 	Circle *c4 = new Circle;
-	Circle* c5 = new Circle(5);
+	Circle* c5 = new Circle(6);
 	Circle* c6 = new Circle(*c5);
-	cout << c5->area() << endl;
 	//удаление динамически созданных объектов
 	delete c4;
 	delete c5;
 	delete c6;
 	
-	c1.expand(4);
 	return 0;
 }
