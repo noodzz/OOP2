@@ -175,6 +175,7 @@ int main()
 {
 	Matrix *mx = new SquareMatrix; // так можно
 	/*SquareMatrix* mx1 = new Matrix;*/ //так нельзя
+	SquareMatrix* mx2 = new SquareMatrix;
 	Matrix m1(2, 3);
 	m1.random_fill();
 	SquareMatrix m(3);
